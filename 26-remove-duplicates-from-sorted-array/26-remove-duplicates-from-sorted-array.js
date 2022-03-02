@@ -3,17 +3,17 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let map  = {};
-    
-    for (let i=0 ; i < nums.length; i++) {
-        if (map[nums[i]] !== undefined) { // index for value (nums[i]) exists
-            nums.splice(map[nums[i]], 1);
-            i--; // decrease counter because of splice
-            map[nums[i]] = i; // new index for value
+    let i = 0;
+    let j = 1;
+    let l = 1;
+    while(j < nums.length) {
+        if(nums[j] === nums[i]) {
+            j++;
         } else {
-            map[nums[i]] = i; // record new index
+            nums[i + 1] = nums[j];
+            i++;
+            l++;
         }
     }
-    
-    return nums.length;
+    return l;
 };
