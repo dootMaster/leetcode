@@ -13,7 +13,6 @@
  */
 var buildTree = function(inorder, postorder) {
     const dfsHelper = (arr) => {
-        console.log(arr); 
         if(!arr.length) return null;
         const root = postorder.pop();
         const indexOfRoot = arr.indexOf(root);
