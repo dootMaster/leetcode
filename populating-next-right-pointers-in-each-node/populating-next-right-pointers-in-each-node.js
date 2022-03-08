@@ -12,22 +12,10 @@
  * @param {Node} root
  * @return {Node}
  */
-// var connect = function(root) {
-//     if (!root || !root.left) return;
-//     root.left.next = root.right;
-//     root.right.next = root.next ? root.next.left : null;
-//     connect(root.left);
-//     connect(root.right);
-// };
-
 var connect = function(root) {
-    if (!root || !root.left) { // sanity check
-        return root;
-    }
-    
-    root.left.next = root.right;                         // connect left -> right
-    root.right.next = root.next ? root.next.left : null; // connect right -> next's left
-    
+    if (!root || !root.left) return root;
+    root.left.next = root.right;
+    root.right.next = root.next ? root.next.left : null;
     connect(root.left);
     connect(root.right);
     return root;
